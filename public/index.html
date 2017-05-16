@@ -3,15 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>Budgie</title>
+        <style>
+        .hidden {
+            display: none;
+        }
+        </style>
     </head>
     <body>
-        <div id="loggedOut">
+        <div id="loggedOut" class="hidden">
             <h1>Please log in</h1>
+            Username:
             <input id="username">
+            Password:
             <input id="password" type="password">
             <button id="loginButton">Log in</button>
         </div>
-        <div id="loggedIn">
+        <div id="loggedIn" class="hidden">
             <h1>Hello, <span id="name"></span>!</h1>
             <button id="logoutButton">Log out</button>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
