@@ -1,0 +1,31 @@
+{
+  "name": "budgie",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "knex": "knex",
+    "resetdb": "knex migrate:rollback; knex migrate:latest; knex seed:run",
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Michael Park <thatmichaelpark@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-as-promised": "^1.1.0",
+    "body-parser": "^1.17.1",
+    "boom": "^4.3.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "express-validation": "^1.0.2",
+    "humps": "^2.0.0",
+    "jsonwebtoken": "^7.4.0",
+    "knex": "^0.13.0",
+    "morgan": "^1.8.1",
+    "pg": "^6.2.2"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
+  }
+}
