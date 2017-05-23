@@ -1,7 +1,7 @@
 'use strict';
 
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt-as-promised');
+const bcrypt = require('bcryptjs');
 const knex = require('../knex');
 const boom = require('boom');
 const {camelizeKeys} = require('humps');
@@ -47,8 +47,8 @@ router.post('/token', (req, res, next) => {
         });
 
         res.send({name: user.name});
-    }).catch(bcrypt.MISMATCH_ERROR, () => {
-        throw boom.create(401, 'User could not be logged in');
+    // }).catch(bcrypt.MISMATCH_ERROR, () => {
+    //     throw boom.create(401, 'User could not be logged in');
     }).catch((err) => {
         next(err);
     });
