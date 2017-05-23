@@ -11,12 +11,24 @@
     </head>
     <body>
         <div id="loggedOut" class="hidden">
-            <h1>Please log in</h1>
-            Username:
-            <input id="username">
-            Password:
-            <input id="password" type="password">
-            <button id="loginButton">Log in</button>
+            <div>
+                <h1>Please log in</h1>
+                Username:
+                <input id="username">
+                Password:
+                <input id="password" type="password">
+                <button id="loginButton">Log in</button>
+            </div>
+            <div>
+                <h2>Or create new account</h2>
+                Username:
+                <input id="newusername">
+                Name:
+                <input id="newname">
+                Password:
+                <input id="newpassword" type="password">
+                <button id="createAccountButton">Create Account</button>
+            </div>
         </div>
         <div id="loggedIn" class="hidden">
             <h1>Hello, <span id="name"></span>!</h1>

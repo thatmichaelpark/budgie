@@ -30,6 +30,7 @@ router.get('/users/:id', (req, res, next) => {
 
 router.post('/users', ev(validations.post), (req, res, next) => {
     const username = req.body.username;
+    const name = req.body.name;
     const password = req.body.password;
 
     knex('users').where('username', username).then((users) => {
@@ -39,7 +40,7 @@ router.post('/users', ev(validations.post), (req, res, next) => {
 
         return bcrypt.hash(password, 12);
     }).then((hashedPassword) => {
-        return knex('users').insert(decamelizeKeys({username, hashedPassword}), '*');
+        return knex('users').insert(decamelizeKeys({username, name, hashedPassword}), '*');
     }).then((result) => {
         res.send({username: result[0].username, id: result[0].id});
     }).catch((err) => {

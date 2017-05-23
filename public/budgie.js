@@ -38,6 +38,10 @@ $(() => {
     function logIn() {
         const username = $('#username').val();
         const password = $('#password').val();
+
+        $('#username').val('');
+        $('#password').val('');
+
         $.ajax('/api/token', {
             method: 'post',
             headers: {
@@ -72,7 +76,37 @@ $(() => {
         });
     }
 
+    function createAccount() {
+        const username = $('#newusername').val();
+        const name = $('#newname').val();
+        const password = $('#newpassword').val();
+
+        $('#newusername').val('');
+        $('#newname').val('');
+        $('#newpassword').val('');
+
+        $.ajax('/api/users', {
+            method: 'post',
+            headers: {
+                Accept: 'application/json, */*'
+            },
+            contentType: 'application/json',
+            data: JSON.stringify({
+                username,
+                name,
+                password
+            })
+        })
+        .then(() => {
+            checkLoggedInStatus();
+        })
+        .catch(err => {
+            console.log('error', err);
+        });
+    }
+
     checkLoggedInStatus();
     $('#loginButton').on('click', logIn);
     $('#logoutButton').on('click', logOut);
+    $('#createAccountButton').on('click', createAccount);
 });
